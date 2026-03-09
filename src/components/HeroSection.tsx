@@ -22,18 +22,18 @@ const HeroSection = () => {
             British & Scottish Fold · Barcelona
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif text-primary-foreground leading-[1.15] mb-6">
-            Building homes filled with love and purrs.
+            Construyendo hogares llenos de amor y ronroneos.
           </h1>
           <p className="text-lg md:text-xl text-warm-beige/90 font-sans font-light leading-relaxed mb-10 max-w-lg">
-            From designing spaces to filling them with life. Discover the ethical world of British & Scottish Fold kittens in Barcelona.
+            Somos Burbuxa's, un criadero transparente dirigido por auténticos enamorados de los gatos British y Scottish Fold en Barcelona.
           </p>
           <a
             href="#story"
             className="inline-flex items-center gap-3 bg-golden-warm/90 hover:bg-golden-warm text-charcoal font-sans font-medium px-8 py-4 rounded-full transition-all duration-300 hover:shadow-warm text-sm tracking-wide uppercase"
           >
-            Meet our family
+            Conoce a nuestra familia
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="translate-y-px">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </a>
         </div>
