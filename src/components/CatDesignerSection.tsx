@@ -152,7 +152,7 @@ const CatDesignerSection = () => {
                         {/* 3. Sexo */}
                         <div className="space-y-5">
                             <h3 className="font-serif text-2xl text-foreground">
-                                3. ¿Niño o Niña?
+                                3. ¿Macho o Hembra?
                             </h3>
                             <div className="flex gap-4">
                                 {sexes.map((s) => (
