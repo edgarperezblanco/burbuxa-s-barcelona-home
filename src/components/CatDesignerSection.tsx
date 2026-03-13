@@ -108,7 +108,7 @@ const CatDesignerSection = () => {
                     {/* Media Display Area */}
                     <div className="relative aspect-[4/5] lg:aspect-square rounded-[3rem] overflow-hidden shadow-warm bg-card border-[8px] border-white/50 animate-fade-in group">
                         <div className="absolute inset-0 bg-secondary/20 animate-pulse" />
-                        <div key={mediaKey} className="absolute inset-0 animate-in fade-in zoom-in-95 duration-700">
+                        <div key={mediaKey} className="absolute inset-0 animate-in fade-in duration-1000 ease-in-out">
                             <img
                                 src={currentMedia.src}
                                 alt={`Gato ${breed} color ${color} ${sex}`}
