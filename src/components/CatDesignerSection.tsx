@@ -2,12 +2,33 @@ import { useState } from "react";
 import { Sparkles, Heart } from "lucide-react";
 
 // Assets
-import breedBlue from "@/assets/breed-blue.jpg";
-import breedLilac from "@/assets/breed-lilac.jpg";
-import breedWhite from "@/assets/breed-white.jpg";
-import breedGolden from "@/assets/breed-golden.jpg";
-import breedCinnamon from "@/assets/breed-cinnamon.jpg";
-import blueBritishVideo from "@/assets/blue-british.mp4";
+import blueBritishHembra from "@/assets/blue-british-hembra.png";
+import blueBritishMacho from "@/assets/blue-british-macho.png";
+import blueScotishHembra from "@/assets/blue-scotish-hembra.png";
+import blueScotishMacho from "@/assets/blue-scotish-macho.png";
+
+import chocolateBritishHembra from "@/assets/chocolate-british-hembra.png";
+import chocolateBritishMacho from "@/assets/chocolate-british-macho.png";
+import chocolateScotishHembra from "@/assets/chocolate-scotish-hembra.png";
+import chocolateScotishMacho from "@/assets/chocolate-scotish-macho.png";
+
+import goldenBritishHembra from "@/assets/golden-british-hembra.png";
+import goldenBritishMacho from "@/assets/golden-british-macho.png";
+import goldenScotishHembra from "@/assets/golden-scotish-hembra.png";
+import goldenScotishMacho from "@/assets/golden-scotish-macho.png";
+
+import lilacBritishHembra from "@/assets/lilac-british-hembra.png";
+import lilacBritishMacho from "@/assets/lilac-british-macho.png";
+import lilacScotishHembra from "@/assets/lilac-scotish-hembra.png";
+import lilacScotishMacho from "@/assets/lilac-scotish-macho.png";
+
+import whiteBritishHembra from "@/assets/white-british-hembra.png";
+import whiteBritishMacho from "@/assets/white-british-macho.png";
+import whiteScotishHembra from "@/assets/white-scotish-hembra.png";
+import whiteScotishMacho from "@/assets/white-scotish-macho.png";
+
+// Mantendremos el video como un recurso disponible,
+// pero por ahora hemos mapeado las 20 fotos exactas.
 
 type Breed = "British Shorthair" | "Scottish Fold";
 type Color = "Blue" | "Lilac" | "Golden" | "Blanco" | "Marron";
@@ -24,22 +45,36 @@ const colors: { name: Color; label: string; bgClass: string }[] = [
     { name: "Marron", label: "Marrón", bgClass: "bg-[#a06d53]" },
 ];
 
-const getMediaForCombination = (breed: Breed, color: Color, sex: Sex) => {
-    // Demo especial: Blue British usa el video. 
-    // En el futuro, se puede mapear directamente cada combinación a su video/foto específica.
-    if (breed === "British Shorthair" && color === "Blue") {
-        return { type: "video" as const, src: blueBritishVideo };
-    }
+const mediaMap: Record<string, string> = {
+    "British Shorthair-Blue-Hembra": blueBritishHembra,
+    "British Shorthair-Blue-Macho": blueBritishMacho,
+    "Scottish Fold-Blue-Hembra": blueScotishHembra,
+    "Scottish Fold-Blue-Macho": blueScotishMacho,
 
-    // Fallback para el resto de combinaciones
-    switch (color) {
-        case "Blue": return { type: "image" as const, src: breedBlue };
-        case "Lilac": return { type: "image" as const, src: breedLilac };
-        case "Golden": return { type: "image" as const, src: breedGolden };
-        case "Blanco": return { type: "image" as const, src: breedWhite };
-        case "Marron": return { type: "image" as const, src: breedCinnamon };
-        default: return { type: "image" as const, src: breedBlue };
-    }
+    "British Shorthair-Marron-Hembra": chocolateBritishHembra,
+    "British Shorthair-Marron-Macho": chocolateBritishMacho,
+    "Scottish Fold-Marron-Hembra": chocolateScotishHembra,
+    "Scottish Fold-Marron-Macho": chocolateScotishMacho,
+
+    "British Shorthair-Golden-Hembra": goldenBritishHembra,
+    "British Shorthair-Golden-Macho": goldenBritishMacho,
+    "Scottish Fold-Golden-Hembra": goldenScotishHembra,
+    "Scottish Fold-Golden-Macho": goldenScotishMacho,
+
+    "British Shorthair-Lilac-Hembra": lilacBritishHembra,
+    "British Shorthair-Lilac-Macho": lilacBritishMacho,
+    "Scottish Fold-Lilac-Hembra": lilacScotishHembra,
+    "Scottish Fold-Lilac-Macho": lilacScotishMacho,
+
+    "British Shorthair-Blanco-Hembra": whiteBritishHembra,
+    "British Shorthair-Blanco-Macho": whiteBritishMacho,
+    "Scottish Fold-Blanco-Hembra": whiteScotishHembra,
+    "Scottish Fold-Blanco-Macho": whiteScotishMacho,
+};
+
+const getMediaForCombination = (breed: Breed, color: Color, sex: Sex) => {
+    const key = `${breed}-${color}-${sex}`;
+    return { type: "image" as const, src: mediaMap[key] || blueBritishMacho };
 };
 
 const CatDesignerSection = () => {
@@ -74,22 +109,11 @@ const CatDesignerSection = () => {
                     <div className="relative aspect-[4/5] lg:aspect-square rounded-[3rem] overflow-hidden shadow-warm bg-card border-[8px] border-white/50 animate-fade-in group">
                         <div className="absolute inset-0 bg-secondary/20 animate-pulse" />
                         <div key={mediaKey} className="absolute inset-0 animate-in fade-in zoom-in-95 duration-700">
-                            {currentMedia.type === "video" ? (
-                                <video
-                                    src={currentMedia.src}
-                                    className="w-full h-full object-cover"
-                                    autoPlay
-                                    loop
-                                    muted
-                                    playsInline
-                                />
-                            ) : (
-                                <img
-                                    src={currentMedia.src}
-                                    alt={`Gato ${breed} color ${color} ${sex}`}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                />
-                            )}
+                            <img
+                                src={currentMedia.src}
+                                alt={`Gato ${breed} color ${color} ${sex}`}
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
                         </div>
                     </div>
 
