@@ -38,7 +38,7 @@ const breeds: Breed[] = ["British Shorthair", "Scottish Fold"];
 const sexes: Sex[] = ["Macho", "Hembra"];
 
 const colors: { name: Color; label: string; bgClass: string }[] = [
-    { name: "Blue", label: "Azul", bgClass: "bg-[#8ba3b5]" },
+    { name: "Blue", label: "Blue", bgClass: "bg-[#8ba3b5]" },
     { name: "Lilac", label: "Lilac", bgClass: "bg-[#d4c1cc]" },
     { name: "Golden", label: "Golden", bgClass: "bg-[#e2aa5f]" },
     { name: "Blanco", label: "Blanco", bgClass: "bg-[#f8f9fa] border border-gray-200" },
