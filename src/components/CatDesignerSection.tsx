@@ -31,7 +31,7 @@ import whiteScotishMacho from "@/assets/white-scotish-macho.png";
 // pero por ahora hemos mapeado las 20 fotos exactas.
 
 type Breed = "British Shorthair" | "Scottish Fold";
-type Color = "Blue" | "Lilac" | "Golden" | "Blanco" | "Marron";
+type Color = "Blue" | "Lilac" | "Golden" | "Blanco" | "Cinnamon";
 type Sex = "Macho" | "Hembra";
 
 const breeds: Breed[] = ["British Shorthair", "Scottish Fold"];
@@ -40,9 +40,9 @@ const sexes: Sex[] = ["Macho", "Hembra"];
 const colors: { name: Color; label: string; bgClass: string }[] = [
     { name: "Blue", label: "Azul", bgClass: "bg-[#8ba3b5]" },
     { name: "Lilac", label: "Lilac", bgClass: "bg-[#d4c1cc]" },
-    { name: "Golden", label: "Dorado", bgClass: "bg-[#e2aa5f]" },
+    { name: "Golden", label: "Golden", bgClass: "bg-[#e2aa5f]" },
     { name: "Blanco", label: "Blanco", bgClass: "bg-[#f8f9fa] border border-gray-200" },
-    { name: "Marron", label: "Marrón", bgClass: "bg-[#a06d53]" },
+    { name: "Cinnamon", label: "Cinnamon", bgClass: "bg-[#a06d53]" },
 ];
 
 const mediaMap: Record<string, string> = {
@@ -51,10 +51,10 @@ const mediaMap: Record<string, string> = {
     "Scottish Fold-Blue-Hembra": blueScotishHembra,
     "Scottish Fold-Blue-Macho": blueScotishMacho,
 
-    "British Shorthair-Marron-Hembra": chocolateBritishHembra,
-    "British Shorthair-Marron-Macho": chocolateBritishMacho,
-    "Scottish Fold-Marron-Hembra": chocolateScotishHembra,
-    "Scottish Fold-Marron-Macho": chocolateScotishMacho,
+    "British Shorthair-Cinnamon-Hembra": chocolateBritishHembra,
+    "British Shorthair-Cinnamon-Macho": chocolateBritishMacho,
+    "Scottish Fold-Cinnamon-Hembra": chocolateScotishHembra,
+    "Scottish Fold-Cinnamon-Macho": chocolateScotishMacho,
 
     "British Shorthair-Golden-Hembra": goldenBritishHembra,
     "British Shorthair-Golden-Macho": goldenBritishMacho,
