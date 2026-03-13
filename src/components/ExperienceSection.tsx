@@ -1,4 +1,4 @@
-import { Heart, Shield, MessageCircle } from "lucide-react";
+import { Heart, Cross, MessageCircle } from "lucide-react";
 
 const features = [
   {
@@ -7,7 +7,7 @@ const features = [
     description: "Cada gatito crece en nuestro hogar, socializado con cariño desde el primer día. No son productos, son parte de nuestra familia hasta que se convierten en parte de la tuya.",
   },
   {
-    icon: Shield,
+    icon: Cross,
     title: "Salud garantizada",
     description: "Controles veterinarios completos, vacunación al día, test genéticos y documentación oficial. Transparencia total en cada paso del proceso.",
   },
