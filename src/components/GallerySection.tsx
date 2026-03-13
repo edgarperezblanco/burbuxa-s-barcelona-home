@@ -1,20 +1,21 @@
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
-import gallery4 from "@/assets/gallery-4.jpg";
-import gallery5 from "@/assets/gallery-5.jpg";
-import gallery6 from "@/assets/gallery-6.jpg";
-
-const images = [
-  { src: gallery1, alt: "Gatito jugando con ovillo de lana" },
-  { src: gallery2, alt: "Dos gatitos acurrucados" },
-  { src: gallery3, alt: "Gatito dormido en una manta" },
-  { src: gallery4, alt: "Scottish Fold explorando" },
-  { src: gallery5, alt: "Gatito en cesta con naranjas" },
-  { src: gallery6, alt: "Familia feliz con su nuevo gatito" },
-];
+import { useEffect } from 'react';
 
 const GallerySection = () => {
+  useEffect(() => {
+    // Inject the Elfsight script dynamically when the component mounts
+    const script = document.createElement('script');
+    script.src = "https://static.elfsight.com/block/platforms.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup the script if the component unmounts
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
   return (
     <section id="galería" className="section-padding bg-secondary/50">
       <div className="max-w-7xl mx-auto">
@@ -26,28 +27,14 @@ const GallerySection = () => {
             Momentos que enamoran
           </h2>
           <p className="text-muted-foreground font-sans max-w-xl mx-auto">
-            Cada foto cuenta la historia de un hogar más feliz.
+            Síguenos en las redes del día a día para ver crecer a nuestros gatitos.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-          {images.map((image, i) => (
-            <div
-              key={i}
-              className={`image-rounded overflow-hidden group cursor-pointer ${
-                i === 0 ? "md:row-span-2" : ""
-              }`}
-            >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className={`w-full object-cover group-hover:scale-105 transition-transform duration-700 ${
-                  i === 0 ? "aspect-square md:aspect-auto md:h-full" : "aspect-square"
-                }`}
-                loading="lazy"
-              />
-            </div>
-          ))}
+        {/* Elfsight Instagram Widget Container */}
+        {/* IMPORTANTE: Sustituye 'demo' por tu ID de Elfsight real más adelante */}
+        <div className="w-full min-h-[400px] flex items-center justify-center bg-background/50 rounded-[2.5rem] p-4 shadow-soft">
+          <div className="elfsight-app-eb1c11d6-411a-471a-bef2-aed93c98d6fa" data-elfsight-app-lazy></div>
         </div>
 
         {/* Instagram CTA */}
@@ -59,11 +46,11 @@ const GallerySection = () => {
             className="inline-flex items-center gap-3 font-sans text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5"/>
-              <circle cx="12" cy="12" r="5"/>
-              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="5" />
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
             </svg>
-            Síguenos en Instagram — @burbuxasbarcelona_
+            @burbuxasbarcelona_
           </a>
         </div>
       </div>
