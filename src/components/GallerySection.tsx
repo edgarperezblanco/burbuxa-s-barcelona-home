@@ -32,9 +32,8 @@ const GallerySection = () => {
         </div>
 
         {/* Elfsight Instagram Widget Container */}
-        {/* IMPORTANTE: Sustituye 'demo' por tu ID de Elfsight real más adelante */}
         <div className="w-full min-h-[400px] flex items-center justify-center bg-background/50 rounded-[2.5rem] p-4 shadow-soft">
-          <div className="elfsight-app-eb1c11d6-411a-471a-bef2-aed93c98d6fa" data-elfsight-app-lazy></div>
+          <div className="elfsight-app-DSXySUWjD7m" data-elfsight-app-lazy></div>
         </div>
 
         {/* Instagram CTA */}
